@@ -5,26 +5,46 @@
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+// 🎨 Paleta de cores - Tema Construção & Segurança
+const PRIMARY = '#F57C00'; // Laranja forte - energia e ação
+const SECONDARY = '#424242'; // Cinza escuro - estabilidade
+const SUCCESS = '#2E7D32'; // Verde construtivo - confirmação
+const LIGHT_BG = '#FAFAFA'; // Cinza claro - fundo principal
+const DARK_GRAY = '#757575'; // Cinza médio - textos secundários
+
+const tintColorLight = PRIMARY;
+const tintColorDark = PRIMARY;
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
+    text: SECONDARY,
+    background: LIGHT_BG,
     tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    icon: DARK_GRAY,
+    tabIconDefault: DARK_GRAY,
+    tabIconSelected: PRIMARY,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    text: '#FFFFFF',
+    background: '#1a1a1a',
+    tint: PRIMARY,
+    icon: DARK_GRAY,
+    tabIconDefault: DARK_GRAY,
+    tabIconSelected: PRIMARY,
   },
+};
+
+// Cores adicionais para uso específico
+export const BrandColors = {
+  primary: PRIMARY,
+  secondary: SECONDARY,
+  success: SUCCESS,
+  warning: '#FF9800',
+  danger: '#D32F2F',
+  lightBg: LIGHT_BG,
+  darkGray: DARK_GRAY,
+  white: '#FFFFFF',
+  border: '#E0E0E0',
 };
 
 export const Fonts = Platform.select({
