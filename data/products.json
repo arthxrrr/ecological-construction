@@ -7,7 +7,7 @@
     "preco": 1.20,
     "precoOriginal": 1.20,
     "descricao": "Tijolo cerâmico de barro com 8 furos, resistente e durável",
-    "imagem": "https://www.ceramicabarrense.com.br/wp-content/uploads/2018/03/CAPA-SITE.jpg",
+    "imagem": "https://dcdn-us.mitiendanube.com/stores/002/054/579/products/tijolo-811-4cc3639c5cfa0a541c16488426896057-1024-1024.webp",
     "destaque": true,
     "desconto": 0
   },
@@ -19,7 +19,7 @@
     "preco": 38.90,
     "precoOriginal": 38.90,
     "descricao": "Cimento Portland 32 de alta qualidade para fundações",
-    "imagem": "",
+    "imagem": "https://i0.wp.com/codarin.com.br/wp-content/uploads/2020/08/cimento-cp-ii-z-32r-todas-as-obras-50-kg.jpg?fit=900%2C914&ssl=1",
     "destaque": true,
     "desconto": 0
   },
@@ -31,7 +31,7 @@
     "preco": 260.91,
     "precoOriginal": 289.90,
     "descricao": "Tinta acrílica premium para interior e exterior",
-    "imagem": "",
+    "imagem": "https://pedraopvc.vteximg.com.br/arquivos/ids/203924-1000-1000/tinta-acrilica-economica-parede-nova-fosco-18-litros-cor-branco-neve-quartzolit-1.0.jpg?v=638548485074200000",
     "destaque": true,
     "desconto": 10
   },
@@ -43,7 +43,7 @@
     "preco": 49.90,
     "precoOriginal": 49.90,
     "descricao": "Marreta profissional com cabo de madeira",
-    "imagem": "",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/469103/marreta_oitavada_1_kg_1065194_1_20160607131540_20160719114935.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -55,7 +55,7 @@
     "preco": 85.00,
     "precoOriginal": 85.00,
     "descricao": "Areia média para reboco, argamassa e pavimentação",
-    "imagem": "",
+    "imagem": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRGXMEsLAsLwQxb8RC0RSXbNsyyWnEQCGbAVr2WRTE-V5m6Yq2KcxdGyJ8eJyPT4tx4hfIN-psji7olDBuQD0CcJ3C8SpsfNsSeX-JlZut4JI6EwsOw1wEW",
     "destaque": false,
     "desconto": 0
   },
@@ -67,7 +67,7 @@
     "preco": 28.50,
     "precoOriginal": 28.50,
     "descricao": "Cal hidratada para reboco e chapisco",
-    "imagem": "",
+    "imagem": "https://cdn.leroymerlin.com.br/products/cal_hidratada_para_construcao_civil_20kg_votoran_85981945_1b57_1800x1800.JPG",
     "destaque": false,
     "desconto": 0
   },
@@ -79,7 +79,7 @@
     "preco": 108.00,
     "precoOriginal": 120.00,
     "descricao": "Torneira cromada polida, resistente à corrosão",
-    "imagem": "",
+    "imagem": "https://cdn.leroymerlin.com.br/products/torneira_parede_cozinha_cromada_e_preta_colors_flex_delinia_90782923_6f83_1800x1800.jpeg",
     "destaque": true,
     "desconto": 10
   },
@@ -91,19 +91,19 @@
     "preco": 95.00,
     "precoOriginal": 95.00,
     "descricao": "Tubo PVC para água fria, diâmetro 50mm",
-    "imagem": "",
+    "imagem": "https://images.cws.digital/produtos/gg/05/50/tubo-de-pvc-soldavel-50mm-c-6m-10095005-1680114448071.jpg",
     "destaque": false,
     "desconto": 0
   },
   {
     "id": 9,
-    "nome": "Telha Cerâmica 50 unidades",
+    "nome": "Telha Cerâmica",
     "categoria": "Alvenaria",
     "iconeCategoria": "cube-outline",
-    "preco": 450.00,
-    "precoOriginal": 450.00,
+    "preco": 4.00,
+    "precoOriginal": 4.00,
     "descricao": "Telhas cerâmicas artesanais, resistentes e duráveis",
-    "imagem": "",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/551909/telha_ceramica_comum_unidade_193_1_20181011131917.png",
     "destaque": false,
     "desconto": 0
   },
@@ -115,7 +115,7 @@
     "preco": 89.90,
     "precoOriginal": 89.90,
     "descricao": "Ferramenta profissional para rebaixar e cortar",
-    "imagem": "",
+    "imagem": "https://internacionalferramentas.com.br/media/catalog/category/RE-373N-0000-000-IND.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -127,7 +127,7 @@
     "preco": 315.00,
     "precoOriginal": 350.00,
     "descricao": "Broca elétrica profissional com velocidade variável",
-    "imagem": "",
+    "imagem": "https://static.lojabrafer.com.br/public/brafer/imagens/produtos/parafusadeira-furadeira-20v-sem-bateria-e-carregador-dewalt-67092990796eb.png", 
     "destaque": true,
     "desconto": 10
   },
@@ -139,7 +139,7 @@
     "preco": 150.00,
     "precoOriginal": 150.00,
     "descricao": "Vidro temperado resistente ao impacto",
-    "imagem": "",
+    "imagem": "https://http2.mlstatic.com/D_643880-MLB54880905820_042023-C.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -151,7 +151,7 @@
     "preco": 45.00,
     "precoOriginal": 45.00,
     "descricao": "Argamassa pronta para assentamento e rejuntamento",
-    "imagem": "",
+    "imagem": "https://xg1e7cnw4i.execute-api.us-east-1.amazonaws.com/image/casteloforte/image/catalog/product/fit-in/1000x1000/84155.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -163,7 +163,7 @@
     "preco": 65.00,
     "precoOriginal": 65.00,
     "descricao": "Piso cerâmico resistente, 45x45cm por unidade",
-    "imagem": "",
+    "imagem": "https://cdn.leroymerlin.com.br/products/piso_ceramico_cimenticio_acetinado_45x45cm_pd_45380_incefra_92165710_3a36_600x600.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -175,7 +175,7 @@
     "preco": 279.90,
     "precoOriginal": 279.90,
     "descricao": "Tinta acrílica para interior e exterior em tons cinza",
-    "imagem": "",
+    "imagem": "https://cdn.awsli.com.br/2500x2500/1166/1166976/produto/226624575/tinta-extra-piso-lata-cinza-3x90ip3f6h.png",
     "destaque": false,
     "desconto": 0
   },
@@ -187,7 +187,7 @@
     "preco": 35.00,
     "precoOriginal": 35.00,
     "descricao": "Chave inglesa ajustável de 300mm, aço temperado",
-    "imagem": "",
+    "imagem": "https://cdn.awsli.com.br/1821/1821377/produto/113308769/4716e1a17d.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -199,7 +199,7 @@
     "preco": 45.00,
     "precoOriginal": 45.00,
     "descricao": "Cano de ferro galvanizado 1 polegada, 3 metros",
-    "imagem": "",
+    "imagem": "https://www.indcomcz.com/temp/img/st/steel-wiring-pipe-galvanized-1-pipe-length-3m-w800-h800-88972d933aefcae9cc63f35c3e24cc40.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -211,7 +211,7 @@
     "preco": 55.00,
     "precoOriginal": 55.00,
     "descricao": "Massa corrida para preparação de superfícies",
-    "imagem": "",
+    "imagem": "https://www.graffiare.com.br/loja/wp-content/uploads/2023/01/Saco-25Kg-800px.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -223,7 +223,7 @@
     "preco": 38.00,
     "precoOriginal": 38.00,
     "descricao": "Rejunte colorido para pisos e azulejos",
-    "imagem": "",
+    "imagem": "https://imageswscdn.wslojas.com.br/files/28939/rejunte-rejuntalite-colorido-avorio-5kg-kerakoll-32-1.png",
     "destaque": false,
     "desconto": 0
   },
@@ -235,7 +235,7 @@
     "preco": 42.00,
     "precoOriginal": 42.00,
     "descricao": "Serrote manual 500mm com lâmina de aço",
-    "imagem": "",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/1188455/serrote_irwin_fast_jack_20_500mm_bi_material_iwht20378_la_33465_1_f66e24a316dacb5ab7b68d0df6d0efd2.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -247,7 +247,7 @@
     "preco": 180.00,
     "precoOriginal": 180.00,
     "descricao": "Nível a laser profissional com alcance até 30m",
-    "imagem": "",
+    "imagem": "https://cdn.awsli.com.br/2500x2500/2666/2666582/produto/303250287/affa60c928e6f997fb52a63a499b31f6-ciiffjf0xq.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -259,7 +259,7 @@
     "preco": 25.00,
     "precoOriginal": 25.00,
     "descricao": "Balde plástico resistente com alça, capacidade 20L",
-    "imagem": "",
+    "imagem": "https://cdn.awsli.com.br/2500x2500/1131/1131299/produto/208801483/whatsapp-image-2023-03-16-at-16-48-19-lrinui.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -271,7 +271,7 @@
     "preco": 18.00,
     "precoOriginal": 18.00,
     "descricao": "Colher de pedreiro triangular em aço",
-    "imagem": "",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/1390684/180_colher_para_pedreiro_triangular_9_e_10_polegadas_71_1_1c5abcf83fe27092d1d6798f9633152e.jpg",
     "destaque": false,
     "desconto": 0
   },
@@ -283,7 +283,7 @@
     "preco": 88.00,
     "precoOriginal": 88.00,
     "descricao": "Asfalto quente para pavimentação, saco com 20kg",
-    "imagem": "",
+    "imagem": "https://cdn.awsli.com.br/2261/2261856/produto/220163802/imagem_2023-06-0-8kkkcl4kgk.png",
     "destaque": false,
     "desconto": 0
   },
@@ -295,7 +295,7 @@
     "preco": 32.00,
     "precoOriginal": 32.00,
     "descricao": "Corante para argamassa e concreto, várias cores",
-    "imagem": "",
+    "imagem": "https://media.adeo.com/media/4400412/media.jpeg",
     "destaque": false,
     "desconto": 0
   }
