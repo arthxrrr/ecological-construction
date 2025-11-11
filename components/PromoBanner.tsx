@@ -50,34 +50,59 @@ export const PromoBanner = ({ products, onProductPress }: PromoBannerProps) => {
       <TouchableOpacity
         style={styles.banner}
         onPress={() => onProductPress?.(product)}
-        activeOpacity={0.9}
+        activeOpacity={0.85}
       >
-        {/* Fundo do banner */}
+        {/* Fundo Gradiente */}
+        <View style={styles.gradientOverlay} />
+
+        {/* Conteúdo do banner */}
         <View style={styles.bannerContent}>
           {/* Lado Esquerdo - Informações */}
           <View style={styles.infoSection}>
+            {/* Badge "Em Promoção" */}
+            <View style={styles.promoBadge}>
+              <Ionicons name="flash" size={14} color="#FFFFFF" />
+              <ThemedText style={styles.promoBadgeText}>Promoção</ThemedText>
+            </View>
+
+            {/* Nome do Produto */}
             <ThemedText style={styles.productName} numberOfLines={2}>
               {product.nome}
             </ThemedText>
 
-            {discountPercent > 0 && (
-              <View style={styles.discountContainer}>
-                <ThemedText style={styles.discountText}>
-                  {discountPercent}% OFF!
-                </ThemedText>
-              </View>
-            )}
+            {/* Desconto e Preços - Row responsiva */}
+            <View style={styles.detailsRow}>
+              {/* Desconto */}
+              {discountPercent > 0 && (
+                <View style={styles.discountContainer}>
+                  <ThemedText style={styles.discountSymbol}>%</ThemedText>
+                  <View style={styles.discountContent}>
+                    <ThemedText style={styles.discountValue}>
+                      {discountPercent}
+                    </ThemedText>
+                    <ThemedText style={styles.discountLabel}>DESC</ThemedText>
+                  </View>
+                </View>
+              )}
 
-            {product.precoOriginal && product.precoOriginal > product.preco && (
-              <View style={styles.priceSection}>
-                <ThemedText style={styles.priceOriginal}>
-                  R$ {product.precoOriginal.toFixed(2).replace('.', ',')}
-                </ThemedText>
-                <ThemedText style={styles.priceNew}>
-                  R$ {product.preco.toFixed(2).replace('.', ',')}
-                </ThemedText>
-              </View>
-            )}
+              {/* Preços */}
+              {product.precoOriginal && product.precoOriginal > product.preco && (
+                <View style={styles.priceSection}>
+                  <ThemedText style={styles.priceOriginal}>
+                    R$ {product.precoOriginal.toFixed(2).replace('.', ',')}
+                  </ThemedText>
+                  <ThemedText style={styles.priceNew}>
+                    R$ {product.preco.toFixed(2).replace('.', ',')}
+                  </ThemedText>
+                </View>
+              )}
+            </View>
+
+            {/* CTA */}
+            <View style={styles.ctaContainer}>
+              <ThemedText style={styles.ctaText}>Ver Oferta</ThemedText>
+              <Ionicons name="arrow-forward" size={16} color="#FFFFFF" />
+            </View>
           </View>
 
           {/* Lado Direito - Imagem */}
@@ -96,14 +121,14 @@ export const PromoBanner = ({ products, onProductPress }: PromoBannerProps) => {
               />
             ) : (
               <View style={styles.imagePlaceholder}>
-                <Ionicons name="image-outline" size={48} color="#FFFFFF" />
+                <Ionicons name="cube-outline" size={52} color="#FFFFFF" />
               </View>
             )}
           </View>
         </View>
       </TouchableOpacity>
 
-      {/* Indicadores de página */}
+      {/* Indicadores de página - Melhorados */}
       {products.length > 1 && (
         <View style={styles.indicatorsContainer}>
           {products.map((_, index) => (
@@ -116,6 +141,12 @@ export const PromoBanner = ({ products, onProductPress }: PromoBannerProps) => {
               onPress={() => setCurrentIndex(index)}
             />
           ))}
+          {/* Contador */}
+          <View style={styles.counter}>
+            <ThemedText style={styles.counterText}>
+              {currentIndex + 1}/{products.length}
+            </ThemedText>
+          </View>
         </View>
       )}
     </View>
@@ -125,101 +156,191 @@ export const PromoBanner = ({ products, onProductPress }: PromoBannerProps) => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 16,
-    marginVertical: 12,
+    marginVertical: 16,
   },
   banner: {
-    borderRadius: 16,
+    borderRadius: 20,
     overflow: 'hidden',
     backgroundColor: '#F57C00',
-    elevation: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
+    elevation: 8,
+    shadowColor: '#F57C00',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.25,
+    shadowRadius: 16,
+  },
+  gradientOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.08)',
   },
   bannerContent: {
     flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingHorizontal: 24,
+    paddingVertical: 20,
     alignItems: 'center',
     justifyContent: 'space-between',
-    minHeight: 140,
-    gap: 12,
+    height: 180,
+    gap: 16,
   },
   infoSection: {
     flex: 1,
+    justifyContent: 'space-between',
+    gap: 6,
   },
-  productName: {
-    fontSize: 16,
-    fontWeight: '800',
-    color: '#FFFFFF',
-    marginBottom: 10,
-    lineHeight: 22,
-  },
-  discountContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 6,
-    alignSelf: 'flex-start',
-    marginBottom: 10,
-  },
-  discountText: {
-    fontSize: 14,
-    fontWeight: '800',
-    color: '#FFFFFF',
-  },
-  priceSection: {
+  detailsRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     gap: 8,
-    flexWrap: 'wrap',
+  },
+  promoBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 20,
+    alignSelf: 'flex-start',
+    marginBottom: 8,
+  },
+  promoBadgeText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    letterSpacing: 0.5,
+  },
+  productName: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    lineHeight: 24,
+    letterSpacing: -0.5,
+  },
+  discountContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.18)',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+  },
+  discountSymbol: {
+    fontSize: 16,
+    fontWeight: '900',
+    color: '#FFFFFF',
+  },
+  discountContent: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: 2,
+  },
+  discountValue: {
+    fontSize: 16,
+    fontWeight: '900',
+    color: '#FFFFFF',
+  },
+  discountLabel: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: 'rgba(255, 255, 255, 0.9)',
+    letterSpacing: 0.5,
+  },
+  priceSection: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: 2,
   },
   priceOriginal: {
-    fontSize: 12,
+    fontSize: 11,
     color: 'rgba(255, 255, 255, 0.7)',
     textDecorationLine: 'line-through',
     fontWeight: '600',
+    letterSpacing: 0.2,
   },
   priceNew: {
-    fontSize: 14,
-    fontWeight: '800',
+    fontSize: 16,
+    fontWeight: '900',
     color: '#FFFFFF',
+    letterSpacing: -0.2,
+  },
+  ctaContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: 8,
+  },
+  ctaText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    letterSpacing: 0.5,
   },
   imageSection: {
-    width: 100,
-    height: 100,
+    width: 140,
+    height: 140,
     justifyContent: 'center',
     alignItems: 'center',
     flexShrink: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
   },
   productImage: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 8,
+    width: '90%',
+    height: '90%',
+    borderRadius: 12,
   },
   imagePlaceholder: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
   },
   indicatorsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 6,
-    marginTop: 12,
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 16,
+    paddingHorizontal: 16,
   },
   indicator: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: 'rgba(245, 124, 0, 0.3)',
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    backgroundColor: 'rgba(245, 124, 0, 0.25)',
+    borderWidth: 1.5,
+    borderColor: 'rgba(245, 124, 0, 0.4)',
   },
   indicatorActive: {
     backgroundColor: '#F57C00',
-    width: 24,
+    borderColor: '#E67E00',
+    width: 28,
+    borderRadius: 4,
+  },
+  counter: {
+    marginLeft: 'auto',
+    backgroundColor: 'rgba(245, 124, 0, 0.1)',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(245, 124, 0, 0.3)',
+  },
+  counterText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#F57C00',
+    letterSpacing: 0.3,
   },
 });

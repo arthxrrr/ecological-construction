@@ -18,17 +18,7 @@ interface CustomCheckoutProps {
   onPaymentFailure: (error: string) => void;
   onClose: () => void;
   isLoading?: boolean;
-  onProcessPayment: (cardData: CardData) => Promise<void>;
-}
-
-export interface CardData {
-  cardNumber: string;
-  cardholderName: string;
-  expirationMonth: string;
-  expirationYear: string;
-  securityCode: string;
-  installments: number;
-  email: string;
+  onProcessPayment: () => Promise<void>;
 }
 
 export const CustomCheckout: React.FC<CustomCheckoutProps> = ({
@@ -40,57 +30,16 @@ export const CustomCheckout: React.FC<CustomCheckoutProps> = ({
   isLoading = false,
   onProcessPayment,
 }) => {
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardholderName, setCardholderName] = useState('');
-  const [expirationMonth, setExpirationMonth] = useState('');
-  const [expirationYear, setExpirationYear] = useState('');
-  const [securityCode, setSecurityCode] = useState('');
   const [email, setEmail] = useState('');
-  const [installments, setInstallments] = useState('1');
-
-  const formatCardNumber = (text: string) => {
-    const cleaned = text.replace(/\D/g, '').slice(0, 16);
-    const formatted = cleaned.replace(/(\d{4})(?=\d)/g, '$1 ');
-    return formatted;
-  };
 
   const handlePayment = async () => {
-    // Validações
-    if (!cardNumber.replace(/\s/g, '').match(/^\d{16}$/)) {
-      Alert.alert('Erro', 'Número do cartão inválido');
-      return;
-    }
-
-    if (!cardholderName.trim()) {
-      Alert.alert('Erro', 'Nome do titular é obrigatório');
-      return;
-    }
-
-    if (!expirationMonth || !expirationYear) {
-      Alert.alert('Erro', 'Data de expiração inválida');
-      return;
-    }
-
-    if (!securityCode.match(/^\d{3,4}$/)) {
-      Alert.alert('Erro', 'CVV inválido');
-      return;
-    }
-
     if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
       Alert.alert('Erro', 'Email inválido');
       return;
     }
 
     try {
-      await onProcessPayment({
-        cardNumber: cardNumber.replace(/\s/g, ''),
-        cardholderName,
-        expirationMonth,
-        expirationYear,
-        securityCode,
-        email,
-        installments: parseInt(installments),
-      });
+      await onProcessPayment();
     } catch (error: any) {
       onPaymentFailure(error.message);
     }
@@ -128,85 +77,13 @@ export const CustomCheckout: React.FC<CustomCheckoutProps> = ({
         </View>
       </View>
 
-      {/* Formulário de Cartão */}
+      {/* Formulário Simplificado */}
       <View style={styles.formContainer}>
-        <Text style={styles.sectionTitle}>Dados do Cartão</Text>
-
-        {/* Número do Cartão */}
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Número do Cartão *</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="0000 0000 0000 0000"
-            placeholderTextColor="#9ca3af"
-            keyboardType="numeric"
-            value={cardNumber}
-            onChangeText={(text) => setCardNumber(formatCardNumber(text))}
-            maxLength={19}
-            editable={!isLoading}
-          />
-        </View>
-
-        {/* Nome do Titular */}
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Nome do Titular *</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="JOÃO SILVA"
-            placeholderTextColor="#9ca3af"
-            value={cardholderName}
-            onChangeText={setCardholderName}
-            editable={!isLoading}
-          />
-        </View>
-
-        {/* Expiração e CVV */}
-        <View style={styles.row}>
-          <View style={[styles.inputGroup, { flex: 1, marginRight: 8 }]}>
-            <Text style={styles.label}>Mês *</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="MM"
-              placeholderTextColor="#9ca3af"
-              keyboardType="numeric"
-              value={expirationMonth}
-              onChangeText={(text) => setExpirationMonth(text.slice(0, 2))}
-              maxLength={2}
-              editable={!isLoading}
-            />
-          </View>
-          <View style={[styles.inputGroup, { flex: 1, marginRight: 8 }]}>
-            <Text style={styles.label}>Ano *</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="YY"
-              placeholderTextColor="#9ca3af"
-              keyboardType="numeric"
-              value={expirationYear}
-              onChangeText={(text) => setExpirationYear(text.slice(0, 2))}
-              maxLength={2}
-              editable={!isLoading}
-            />
-          </View>
-          <View style={[styles.inputGroup, { flex: 1 }]}>
-            <Text style={styles.label}>CVV *</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="000"
-              placeholderTextColor="#9ca3af"
-              keyboardType="numeric"
-              value={securityCode}
-              onChangeText={(text) => setSecurityCode(text.slice(0, 4))}
-              maxLength={4}
-              secureTextEntry
-              editable={!isLoading}
-            />
-          </View>
-        </View>
+        <Text style={styles.sectionTitle}>Confirmação de Compra</Text>
 
         {/* Email */}
         <View style={styles.inputGroup}>
-          <Text style={styles.label}>Email *</Text>
+          <Text style={styles.label}>Email para Confirmação *</Text>
           <TextInput
             style={styles.input}
             placeholder="seu@email.com"
@@ -216,41 +93,6 @@ export const CustomCheckout: React.FC<CustomCheckoutProps> = ({
             onChangeText={setEmail}
             editable={!isLoading}
           />
-        </View>
-
-        {/* Parcelamento */}
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Parcelamento</Text>
-          <View style={styles.installmentsContainer}>
-            {['1', '2', '3', '6', '12'].map((num) => (
-              <TouchableOpacity
-                key={num}
-                style={[
-                  styles.installmentButton,
-                  installments === num && styles.installmentButtonActive,
-                ]}
-                onPress={() => setInstallments(num)}
-                disabled={isLoading}
-              >
-                <Text
-                  style={[
-                    styles.installmentText,
-                    installments === num && styles.installmentTextActive,
-                  ]}
-                >
-                  {num}x
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </View>
-
-        {/* Nota de Teste */}
-        <View style={styles.testCardNotice}>
-          <Ionicons name="information-circle" size={16} color="#f97316" />
-          <Text style={styles.testCardText}>
-            Para testes use: 4111111111111111 | Exp: 12/25 | CVV: 123
-          </Text>
         </View>
       </View>
 

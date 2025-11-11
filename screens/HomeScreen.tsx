@@ -5,7 +5,7 @@ import { getAllProducts } from '@/services/productService';
 import { Product } from '@/types';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useMemo, useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 interface HomeScreenProps {
   onProductPress?: (product: Product) => void;
@@ -33,7 +33,13 @@ export const HomeScreen = ({ onProductPress, onFavorite, favoriteIds = new Set()
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <ThemedText style={styles.logoText}> Ecological Construction</ThemedText>
+        <View style={styles.logoContainer}>
+          <View style={styles.titleWrapper}>
+            <Text style={styles.titlePart1}>Ecological</Text>
+            <Text style={styles.titlePart2}>Construction</Text>
+          </View>
+          <View style={styles.accentLine} />
+        </View>
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -80,15 +86,84 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   header: {
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingHorizontal: 20,
+    paddingVertical: 28,
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#e5e7eb',
+    borderBottomColor: '#f0f0f0',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.06,
+    shadowRadius: 12,
+    elevation: 3,
+  },
+  logoContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 14,
+  },
+  iconBadge: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    backgroundColor: '#2ECC71',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#2ECC71',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  titleWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  titlePart1: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#2ECC71',
+    letterSpacing: 0.6,
+    lineHeight: 22,
+    textTransform: 'uppercase',
+    marginBottom: 2,
+  },
+  titlePart2: {
+    fontSize: 32,
+    fontWeight: '900',
+    color: '#1f2937',
+    letterSpacing: 1,
+    lineHeight: 38,
+  },
+  accentLine: {
+    width: 60,
+    height: 3,
+    backgroundColor: '#2ECC71',
+    borderRadius: 2,
+    shadowColor: '#2ECC71',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    elevation: 2,
   },
   logoText: {
-    fontSize: 22,
-    fontWeight: '800',
+    fontSize: 28,
+    fontWeight: '900',
     color: '#F57C00',
+    letterSpacing: 1.2,
+    textAlign: 'center',
+    lineHeight: 36,
+    textTransform: 'uppercase',
+  },
+  subtitle: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: '#6b7280',
+    letterSpacing: 0.3,
+    marginTop: 4,
   },
   sectionTitle: {
     fontSize: 16,
